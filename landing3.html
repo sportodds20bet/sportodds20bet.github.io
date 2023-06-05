@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sport Odds 20Bet - Data Removal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .form-input {
+      width: 300px;
+      height: 30px;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    .submit-button {
+      width: 150px;
+      height: 40px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .submit-button:hover {
+      background-color: #555;
+    }
+
+    .notice {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Sport Odds 20Bet - Data Removal</h1>
+    <p class="description">To delete your data, please enter your email address:</p>
+    <form class="form" action="/delete" method="POST">
+      <div class="form-group">
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-input" type="email" id="email" name="email" required>
+      </div>
+      <button class="submit-button" type="submit">Delete Data</button>
+    </form>
+    <p class="notice">Please note that deleting your data will permanently remove all associated information from our system.</p>
+  </div>
+</body>
+</html>
