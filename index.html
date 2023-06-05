@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sport Odds 20Bet</title>
+  <style>
+    body {
+      background-image: url('main.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow-y: scroll;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 100px;
+    }
+    
+    .column {
+      width: 200px;
+      height: 200px;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .column:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .column::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff0066, #6600ff);
+      opacity: 0.7;
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: -1;
+    }
+    
+    .column:hover::before {
+      transform: scale(1);
+    }
+    
+    .column h2 {
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .column p {
+      color: #555;
+      text-align: center;
+    }
+    
+    .column a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .column a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .screenshot-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    
+    .screenshot {
+      display: block;
+      margin: 0 10px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: slideInFromLeft 1s ease-in-out;
+    }
+    
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    .ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('pngimg.com - football_PNG52772.png');
+      background-size: contain;
+      animation: ballAnimation 5s infinite;
+    }
+    
+    @keyframes ballAnimation {
+      0% { top: 0; left: 0; }
+      25% { top: 0; left: calc(100% - 50px); }
+      50% { top: calc(100% - 50px); left: calc(100% - 50px); }
+      75% { top: calc(100% - 50px); left: 0; }
+      100% { top: 0; left: 0; }
+    }
+    
+    .ball1 {
+      animation-delay: 0s;
+    }
+    
+    .ball2 {
+      animation-delay: 1s;
+    }
+    
+    .ball3 {
+      animation-delay: 2s;
+    }
+    
+    .ball4 {
+      animation-delay: 3s;
+    }
+
+    .pulse {
+      animation: pulseAnimation 1.5s infinite;
+    }
+
+    @keyframes pulseAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Sport Odds 20Bet</h1>
+
+  <div class="container">
+    <div class="column">
+      <h2>Column 1</h2>
+      <p>Move to stay in the game.</p>
+      <a href="landing1.html" class="pulse">Privacy Policy</a>
+    </div>
+    <div class="column">
+      <h2>Column 2</h2>
+      <p>Football is what drives life.</p>
+      <a href="landing2.html" class="pulse">Terms & Conditions
+</a>
+    </div>
+    <div class="column">
+      <h2>Column 3</h2>
+      <p>Team play will lead to victory.</p>
+      <a href="landing3.html" class="pulse">Delete user data</a>
+    </div>
+  </div>
+
+  <div class="screenshot-container">
+    <img class="screenshot" src="2.png" alt="Screenshot 1">
+    <img class="screenshot" src="3.png" alt="Screenshot 2">
+    <img class="screenshot" src="4.png" alt="Screenshot 3">
+    <img class="screenshot" src="5.png" alt="Screenshot 3">
+  </div>
+
+  <div class="ball ball1"></div>
+  <div class="ball ball2"></div>
+  <div class="ball ball3"></div>
+  <div class="ball ball4"></div>
+
+  <script>
+    function getRandomPosition(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function moveBall() {
+      var balls = document.getElementsByClassName('ball');
+      var containerWidth = document.body.clientWidth;
+      var containerHeight = document.body.clientHeight;
+
+      for (var i = 0; i < balls.length; i++) {
+        var ball = balls[i];
+        var newTop = getRandomPosition(0, containerHeight - 50);
+        var newLeft = getRandomPosition(0, containerWidth - 50);
+        ball.style.top = newTop + 'px';
+        ball.style.left = newLeft + 'px';
+      }
+    }
+
+    setInterval(moveBall, 2000); // Обновлять позиции мячей каждые 2 секунды
+  </script>
+</body>
+</html>
